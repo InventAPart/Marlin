@@ -492,6 +492,12 @@ void setup()
 {
   setup_killpin();
   setup_powerhold();
+
+  #ifdef STEPPER_RESET_FIX
+    pinMode(41, OUTPUT);    // set pin 51, digital pin 41, to output
+    digitalWrite(41, LOW);  // drive it down to hold in reset motor driver chips
+  #endif
+
   MYSERIAL.begin(BAUDRATE);
   SERIAL_PROTOCOLLNPGM("start");
   SERIAL_ECHO_START;
@@ -543,6 +549,11 @@ void setup()
 
   #if defined(CONTROLLERFAN_PIN) && CONTROLLERFAN_PIN > -1
     SET_OUTPUT(CONTROLLERFAN_PIN); //Set pin used for driver cooling fan
+  #endif
+
+  #ifdef STEPPER_RESET_FIX
+      pinMode(41, INPUT);     // set to input, which allows it to be pulled high by pullups
+                              // the system power up should be done by now
   #endif
 
   #ifdef DIGIPOT_I2C
