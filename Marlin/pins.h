@@ -2816,7 +2816,7 @@ DaveX plan for Teensylu/printrboard-type pinouts (ref teensylu & sprinter) for a
   #if NUM_SERVOS > 2
   #define SERVO2_PIN         5
   #endif
-  #if NUM_SERVOS > 2
+  #if NUM_SERVOS > 3
   #define SERVO3_PIN         4
   #endif
 #endif

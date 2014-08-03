@@ -74,7 +74,7 @@
 // 88 = 5DPrint D8 Driver Board
 
 #ifndef MOTHERBOARD
-#define MOTHERBOARD 42
+#define MOTHERBOARD 7
 #endif
 
 // Define this to set a custom name for your generic Mendel,
@@ -594,6 +594,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 // http://www.elefu.com/index.php?route=product/product&product_id=53
 // REMEMBER TO INSTALL LiquidCrystal_I2C.h in your ARUDINO library folder: https://github.com/kiyoshigawa/LiquidCrystal_I2C
 //#define RA_CONTROL_PANEL
+
+// RigidBot Panel V1.0
+// http://www.inventapart.com/
 #define RIGIDBOT_PANEL
 
 //automatic expansion
