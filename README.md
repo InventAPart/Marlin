@@ -1,3 +1,15 @@
+====================================================
+Backport of RigidBoard to Marlin 3D Printer Firmware
+====================================================
+
+This fork is for owners of the RigidBot 3D printer from Invent-A-Part to collaborate on backporting the firmware changes for the RigidBot to the Marlin code base.  All contributions to this goal are welcome!  This project is limited in scope to the backport efforts at this time, we are not looking to add new features to the RigidBot firmware until it's merged back with Marlin.  If you want to add features to Marlin, go to https://www.github.com/ErikZalm/Marlin.
+
+The conversations around this project can be found here: http://www.rigidtalk.com/viewtopic.php?f=3&t=91
+
+To identify the changes in question, compare https://www.github.com/InventAPart/RigidBot-Firmware with https://www.github.com/ErikZalm/Marlin @{a964b3c} (May 28, 2013).  Those modifications are being brought forward to the latest Marlin release.
+
+Aside from typical parameters like build volume, PID constants, etc. the RigidBot changes are mostly to the LCD module (print from USB vs. print from SD, and differences in communications that warrant maintaining a separate file for this particular LCD.  After getting the code aligned with Marlin, we will seek acceptance into mainstream Marlin, and maintain only the RigidBot machine parameters separately.
+
 ==========================
 Marlin 3D Printer Firmware
 ==========================
