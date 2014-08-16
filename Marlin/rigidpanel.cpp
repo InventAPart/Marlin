@@ -1,6 +1,7 @@
 #include "temperature.h"
-#include "ultralcd.h"
-#ifdef ULTRA_LCD
+#include "rigidpanel.h"
+
+#ifdef RIGIDPANEL
 #include "Marlin.h"
 #include "language.h"
 #include "cardreader.h"
@@ -29,7 +30,7 @@ typedef void (*menuFunc_t)();
 uint8_t lcd_status_message_level;
 char lcd_status_message[LCD_WIDTH+1] = WELCOME_MSG;
 
-#include "ultralcd_implementation_RigidBot.h"
+#include "ultralcd_implementation_RigidPanel.h"
 
 /** forward declerations **/
 
@@ -38,7 +39,6 @@ void copy_and_scalePID_d();
 
 /* Different menus */
 static void lcd_status_screen();
-#ifdef ULTIPANEL
 static void lcd_main_menu();
 static void lcd_tune_menu();
 static void lcd_prepare_menu();
@@ -145,7 +145,6 @@ uint32_t encoderPosition;
 #if (SDCARDDETECT > 0)
 bool lcd_oldcardstatus;
 #endif
-#endif//ULTIPANEL
 
 menuFunc_t currentMenu = lcd_status_screen; /* function pointer to the currently active menu */
 menuFunc_t backMenu = currentMenu;
@@ -227,8 +226,6 @@ static void lcd_status_screen()
 		//lcd_status_update_delay = 0;	//	Force update on next cycle
 	feedLast = feedmultiply;
 }
-
-#ifdef ULTIPANEL
 
 //####################################################################################################
 //	Main status display screen
@@ -1026,7 +1023,6 @@ static void menu_action_setting_edit_bool(const char* pstr, bool* ptr)
 {
     *ptr = !(*ptr);
 }
-#endif//ULTIPANEL
 
 /** LCD API **/
 void lcd_init()
@@ -1036,13 +1032,11 @@ void lcd_init()
     pinMode(BTN_ENC,INPUT); 
     WRITE(BTN_ENC,HIGH);
   #endif    
-  #ifdef RIGIDBOT_PANEL
     pinMode(BTN_UP,INPUT);
     pinMode(BTN_DWN,INPUT);
     pinMode(BTN_LFT,INPUT);
     pinMode(BTN_RT,INPUT);
  //   pinMode(BTN_ENT,INPUT)
-  #endif
 
 #if (SDCARDDETECT > 0)
     pinMode(SDCARDDETECT,INPUT);
@@ -1050,9 +1044,7 @@ void lcd_init()
     lcd_oldcardstatus = IS_SD_INSERTED;
 #endif//(SDCARDDETECT > 0)
     lcd_buttons_update();
-#ifdef ULTIPANEL    
     encoderDiff = 0;
-#endif
 }
 
 void lcd_update()
@@ -1150,16 +1142,13 @@ void lcd_setalertstatuspgm(const char* message)
 {
     lcd_setstatuspgm(message);
     lcd_status_message_level = 1;
-#ifdef ULTIPANEL
     lcd_return_to_status();
-#endif//ULTIPANEL
 }
 void lcd_reset_alert_level()
 {
     lcd_status_message_level = 0;
 }
 
-#ifdef ULTIPANEL
 /* Warning: This function is called from interrupt context */
 void lcd_buttons_update()
 {
@@ -1208,7 +1197,6 @@ bool lcd_clicked()
 { 
   return LCD_CLICKED;
 }
-#endif//ULTIPANEL
 
 /********************************/
 /** Float conversion utilities **/
@@ -1419,4 +1407,4 @@ void copy_and_scalePID_d()
   updatePID();
 }
 
-#endif //ULTRA_LCD
+#endif //RIGIDPANEL
