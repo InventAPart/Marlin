@@ -1,9 +1,9 @@
-#ifndef ULTRALCD_H
-#define ULTRALCD_H
+#ifndef RIGIDPANEL_H
+#define RIGIDPANEL_H
 
 #include "Marlin.h"
 
-#ifdef ULTRA_LCD
+#ifdef RIGIDPANEL
 
   void lcd_update();
   void lcd_init();
@@ -25,11 +25,7 @@
   #define FILE_SCROLL_START_DELAY	1000
   #define FILE_SCROLL_DELAY		400
 
-  #ifdef ULTIPANEL
   void lcd_buttons_update();
-  #else
-  FORCE_INLINE void lcd_buttons_update() {}
-  #endif
 
   extern int plaPreheatHotendTemp;
   extern int plaPreheatHPBTemp;
@@ -68,4 +64,4 @@ char *ftostr5(const float &x);
 char *ftostr51(const float &x);
 char *ftostr52(const float &x);
 
-#endif //ULTRALCD
+#endif //RIGIDLCD

@@ -1,8 +1,8 @@
-#ifndef ULTRA_LCD_IMPLEMENTATION_HITACHI_HD44780_H
-#define ULTRA_LCD_IMPLEMENTATION_HITACHI_HD44780_H
+#ifndef ULTRA_LCD_IMPLEMENTATION_RIGIDPANEL_H
+#define ULTRA_LCD_IMPLEMENTATION_RIGIDPANEL_H
 
 /**
-* Implementation of the LCD display routines for a hitachi HD44780 display. These are common LCD character displays.
+* Implementation of the LCD display routines for the Invent-A-Part RigidPanel LCD controller.
 * When selecting the rusian language, a slightly different LCD implementation is used to handle UTF8 characters.
 **/
 
@@ -15,7 +15,6 @@ extern volatile uint8_t buttons;  //the last checked buttons in a bit array.
 // macro name. The mapping is independent of whether the button is directly connected or 
 // via a shift/i2c register.
 
-#ifdef ULTIPANEL
 // All Ultipanels might have an encoder - so this is always be mapped onto first two bits
 #define BLEN_B 1
 #define BLEN_A 0
@@ -39,8 +38,6 @@ extern volatile uint8_t buttons;  //the last checked buttons in a bit array.
   
 //  #define LCD_CLICKED (buttons&EN_C || buttons&B_RI)
   #define LCD_CLICKED (buttons&EN_C)
-
-#endif
 
 ////////////////////////
 // Setup Rotary Encoder Bit Values (for two pin encoders to indicate movement)
@@ -628,4 +625,4 @@ static uint8_t lcd_implementation_read_slow_buttons()
 }
 #endif
 
-#endif//ULTRA_LCD_IMPLEMENTATION_HITACHI_HD44780_H
+#endif//ULTRA_LCD_IMPLEMENTATION_RIGIDPANEL_H
