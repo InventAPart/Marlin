@@ -794,6 +794,7 @@ void disableSteppers()
 }
 
 void enableSteppers()
+{
   pinMode(STEPPER_RESET_PIN, INPUT);     // set to input, which allows it to be pulled high by pullups
 
   return;
