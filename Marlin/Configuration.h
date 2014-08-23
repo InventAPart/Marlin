@@ -355,12 +355,12 @@ your extruder heater takes 2 minutes to hit the target on heating.
    #endif
 
    #if RIGIDBOT_SIZE == 1 // 10x10 Regular
-     #define X_MAX_POS (406 - X_DUAL_REDUCTION)
-     #define Y_MAX_POS 304
-     #define Z_MAX_POS 254
-   #elif RIGIDBOT_SIZE == 2 // 12x16 Big
      #define X_MAX_POS (254 - X_DUAL_REDUCTION)
      #define Y_MAX_POS 248
+     #define Z_MAX_POS 254
+   #elif RIGIDBOT_SIZE == 2 // 12x16 Big
+     #define X_MAX_POS (406 - X_DUAL_REDUCTION)
+     #define Y_MAX_POS 304
      #define Z_MAX_POS 254
    #endif
    #define X_MIN_POS 0
