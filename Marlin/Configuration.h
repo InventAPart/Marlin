@@ -308,8 +308,8 @@ your extruder heater takes 2 minutes to hit the target on heating.
 // Predefined Mechanics for kits/pre-assembled printers
 //
 // Invent-A-Part RigidBot
-#define RIGIDBOT
-#define RIGIDBOT_SIZE 1		// 1 = 10x10 Regular	; 2 = 12x16 Big
+//#define RIGIDBOT
+//#define RIGIDBOT_SIZE 1		// 1 = 10x10 Regular	; 2 = 12x16 Big
 // Other predefined mechanical settings go here...
 
 #ifdef RIGIDBOT
@@ -474,8 +474,8 @@ your extruder heater takes 2 minutes to hit the target on heating.
    //#define MANUAL_Z_HOME_POS 402 // For delta: Distance between nozzle and print surface after homing.
 
    //// MOVEMENT SETTINGS
-   // #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
-   // #define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
+   #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
+   #define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
    
    // default settings
 
@@ -485,7 +485,7 @@ your extruder heater takes 2 minutes to hit the target on heating.
    
    #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves
    #define DEFAULT_RETRACT_ACCELERATION  3000   // X, Y, Z and E max acceleration in mm/s^2 for retracts
-   //
+   
    // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
    // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
    // For the other hotends it is their distance from the extruder 0 hotend.
